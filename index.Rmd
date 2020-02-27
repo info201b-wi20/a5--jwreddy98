@@ -1,0 +1,54 @@
+---
+title: "Shootings in the U.S. in 2018"
+author: "Jared Reddy"
+date: "02/24/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("analysis.R")
+library("dplyr")
+library("leaflet")
+library("tidyr")
+library("lubridate")
+library("ggplot2")
+library("ggmap")
+library("knitr")
+library("rmarkdown")
+```
+## Shootings in the US in 2018
+In 2018, the United States had a total of `r shootings_occured` shootings occur with a total number of `r lives_lost_total` lives lost. The city that was most impacted by these shootings, meaning the total number of lives lost and casualties, was `r highest_impacted`. In the year of 2018, the highest number of state casualties was tied between `r state_casualties`.
+
+## Summary Table 
+The table below summarizes the total number of casualties per month. Casualties in this situation are defined as those injured and those who were killed.
+
+```{r echo=FALSE}
+kable(shootings_by_city, col.names = c("City", "Number of People Killed"))
+```
+
+## Pompano Beach Shootings
+On `r pompano_beach_date`, a former High School student opened fire on a school in Florida killing a total of `r pompano_beach_injured` and injuring an additional `r pompano_beach_injured`. In the [CNN](https://www.cnn.com/2018/02/14/us/florida-high-school-shooting/index.html) report that the shooting was one of the top 10 worst in U.S. history. The student, Nikolas Cruz, had been expelled from the high school for disciplinary reasons previously. The shooting shook Parkland, Florida to it's core as it was one of the safest cities to live in in the state. The school went into lockdown as soon as gunshots had begun. Nikolas Cruz was said to have used a .223 caliber AR-15 style gun for the shooting. 
+
+## Interactive Map
+```{r echo=FALSE, fig.height=5, fig.width=10}
+shooting_map
+```
+The interactive map above is showing all shootings that have happened in the U.S. in the year of 2018. The legend sorts color of dots by how many deaths occurred at each shooting. By viewing this map, we can see that a lot of shootings occur on the east coast with shootings on the west coast being more clustered. 
+
+
+
+## Data Plot
+```{r echo=FALSE, fig.height=5, fig.width=10}
+plot
+```
+In the plot above, we can see the number of shootings along the X-Axis and the Month the shootings occurred on the Y-Axis. With the plotted data, we can see if there is any correlation between shootings and the seasons. The data shows more shootings occur in the warmer seasons versus shootings and colder seasons. 
+
+
+
+
+
+
+
+
+
